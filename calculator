@@ -1,0 +1,27 @@
+#! /usr/bin/env node
+
+import inquirer from "inquirer";
+
+// user question for inquirer.
+const answer = await inquirer.prompt([
+  { message: "enter first no", type: "number", name: "first_number" },
+  { message: "enter second no", type: "number", name: "second_number" },
+  {
+    message: "select one operator to perform Operations",
+    type: "list",
+    name: "operator",
+    choices: ["addition", "subtraction", "multiplication", "division"],
+  },
+]);
+// condition
+if (answer.operator === "addition") {
+  console.log(answer.first_number + answer.second_number);
+} else if (answer.operator === "subtraction") {
+  console.log(answer.first_number - answer.second_number);
+} else if (answer.operator === "multiplication") {
+  console.log(answer.first_number * answer.second_number);
+} else if (answer.operator === "divison") {
+  console.log(answer.first_number / answer.second_number);
+} else {
+  console.log("invalid input");
+}
